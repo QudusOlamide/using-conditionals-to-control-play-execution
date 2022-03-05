@@ -1,0 +1,10 @@
+---
+- hosts: server2
+  become: true
+  tasks:
+    - name:
+      lineinfile:
+        path: /var/www/html/index.html
+        line: "I'm back!!"
+      when:
+        - ansible_hostname == "172.25.1.6"
